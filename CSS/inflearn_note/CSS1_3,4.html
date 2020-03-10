@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        #myspan {
+            color: red;
+        }
+
+        #jisu > p:nth-child(2) { color: blue}
+
+    </style>
+</head>
+<body>
+    <!-- 선언방식에 따른 차이
+        inline > internal > external -->
+
+    <!--
+    자세한것 우선
+    id > class > element
+
+    #a{
+        color: red;
+    }
+    .b{
+        color: blue;
+    }
+    div{
+        color: green;
+    }
+    -->
+
+    <!--id 이용-->
+    <span id="myspan">my text is upper!</span>
+
+    <div id="jisu">
+        <h2>단락 선택</h2>
+        <p>첫번째 단락입니다</p>
+        <p>두번째 단락입니다</p>
+        <p>세번째 단락입니다</p>
+        <p>네번째 단락입니다</p>
+    </div>
+</body>
+</html>
