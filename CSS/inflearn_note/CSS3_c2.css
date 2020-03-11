@@ -1,0 +1,12 @@
+.wrap > div {
+    border: 1px solid gray;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    /*글과 그림 자연스럽게 배치할때, 레이아웃*/
+    float: left;
+}
+
+.wrap > div:nth-child(2) {
+    color:red;
+}
