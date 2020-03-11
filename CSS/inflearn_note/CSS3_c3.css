@@ -1,0 +1,26 @@
+.wrap {
+    background-color: slategray;
+    padding: 0.5rem;
+    width: 300px;
+    box-sizing: border-box;
+    /*float 되어있는 content를 자식들로 인정해줌 auto or hidden*/
+    overflow: hidden;
+}
+
+.wrap > div {
+    background-color: #333;
+    width: 50px;
+    height: 50px;
+    margin: 0.5rem;
+    color: #fff;
+    float: left;
+}
+
+footer {
+    width: 300px;
+    height: 100px;
+    background-color: #bb3;
+    margin-top: 0.5rem;
+    /*float 인식*/
+    clear: both;
+}
