@@ -1,0 +1,16 @@
+.wrap {
+    background-color: slategray;
+    height: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+}
+
+.wrap > div {
+    height: 30px;
+    padding: 0.5rem;
+    background-color: skyblue;
+    color: white;
+}
+
