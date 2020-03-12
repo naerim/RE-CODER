@@ -1,0 +1,22 @@
+.wrap {
+    position: relative;
+    transform: translate3d(10px, 0, 0);
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: slategray;
+    color: #fff;
+    text-align: center;
+    line-height: 100px;
+    position: absolute;
+}
+
+.box:nth-child(2) {
+    transform: translate3d(100px, 0, 0);
+}
+
+.box:nth-child(3) {
+    transform: translate3d(200px, 0, 0);
+}
