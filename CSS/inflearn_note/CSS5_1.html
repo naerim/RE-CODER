@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>transition</title>
+    <link rel="stylesheet" href="CSS5_c1.css">
+</head>
+<body>
+    <div class="box">
+        box!
+    </div>
+    <script type="text/javascript">
+        var box = document.querySelector(".box");
+        box.addEventListener("click", function (evt) {
+            evt.target.style.height = "200px";
+            evt.target.style.width = "200px";
+        })
+    </script>
+</body>
+</html>
