@@ -1,0 +1,184 @@
+/* menu */
+#menu {
+    position: fixed;
+    float: right;
+    margin-top: 30px;
+    margin-left: 2%;
+    margin-right: 2%;
+    width: 96%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+}
+
+#menu > ul > li {
+    margin-left: 60px;
+    list-style: none;
+    float: right;
+    line-height: 60px;
+    vertical-align: bottom;
+    text-align: center;
+}
+
+.link {
+    text-decoration: none;
+    color: darkslategray;
+    display: block;
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+/* 메인이미지, 소개글 */
+.home {
+    position: relative;
+    background-color: azure;
+    padding: 50px;
+}
+
+
+.home > img {
+    margin: 2% 1% 2% 1%;     /*위 오른쪽 아래 왼쪽*/
+    width: 98%;
+    height: 2100px;
+    opacity: 80%;
+}
+
+.home > menu {
+    font-size: 5rem;
+}
+
+.introduce {
+    position: absolute;
+    top: 35%;
+    left: 35%;
+    font-size: 5rem;
+    color: maroon;
+}
+
+.introduce > h1 {
+    animation-duration: 3s;
+    animation-name: slidein;
+}
+
+#work {
+    color: black;
+    font-size: 4rem;
+}
+
+@keyframes slidein{
+    from {
+        margin-left: 100%;
+        width: 300%;
+    }
+    to {
+        margin-left: 0%;
+        width: 100%;
+    }
+}
+
+/*about*/
+.about {
+    position: relative;
+    background-color: beige;
+    height: 3500px;
+}
+
+.contact {
+    position: relative;
+    background-color: antiquewhite;
+    height: 1000px;
+}
+
+#ABOUT {
+    background-color: azure;
+}
+
+#ABOUT > div {
+    background-color: beige;
+    margin-right: 95%;
+    width: 15%;
+    height: 100px;
+    color: darkslategray;
+    font-size: 5rem;
+    text-align: center;
+}
+
+.box {
+    float: left;
+    min-height: 150px;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 80px;
+    font-size: 4em;
+    text-align: center;
+    border-style: dashed;
+    border-color: orange;
+}
+
+.box:nth-child(1) {animation:move 4s}
+.box:nth-child(2) {animation:move 5s}
+.box:nth-child(3) {animation:move 6s}
+.box:nth-child(4) {animation:move 7s}
+
+@keyframes move {
+    0% {margin-left: -150px; opacity: 0%;}
+    100% {margin-left: 5%; opacity: 100%}
+}
+
+#box1 {
+    color: coral;
+}
+
+#box2 {
+    color: orangered;
+}
+
+#box3 {
+    color: brown;
+}
+
+#box4 {
+    color: green;
+}
+
+#CONTACT {
+    background-color: beige;
+}
+
+#CONTACT > div {
+    background-color: antiquewhite;
+    margin-right: 95%;
+    width: 15%;
+    height: 100px;
+    color: darkslategray;
+    font-size: 5rem;
+    text-align: center;
+}
+
+/* contact 링크 건 부분 */
+.tag {
+    position: absolute;
+    width: 1000px;
+    top: 50%;
+    left: 50%;
+    margin-left: -380px;
+    margin-top: -100px;
+}
+
+.tag > a > img {
+    margin-right: 10%;
+    margin-top: 2%;
+    margin-bottom: 5%;
+    width: 150px;
+    height: auto;
+}
+
+.tag > h1 {
+    font-size: 3rem;
+}
+
+footer {
+    text-align: center;
+}
