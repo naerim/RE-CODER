@@ -9,14 +9,13 @@
     top: 0;
     left: 0;
     z-index: 1;
-
 }
 
 #menu > ul > li {
     margin-left: 60px;
     list-style: none;
     float: right;
-    line-height: 60px;
+    line-height: 20px;
     vertical-align: bottom;
     text-align: center;
 }
@@ -25,7 +24,7 @@
     text-decoration: none;
     color: darkslategray;
     display: block;
-    font-size: 4rem;
+    font-size: 1.5rem;
     font-weight: bold;
 }
 
@@ -36,23 +35,18 @@
     padding: 50px;
 }
 
-
 .home > img {
     margin: 2% 1% 2% 1%;     /*위 오른쪽 아래 왼쪽*/
     width: 98%;
-    height: 2100px;
+    height: 700px;
     opacity: 80%;
-}
-
-.home > menu {
-    font-size: 5rem;
 }
 
 .introduce {
     position: absolute;
     top: 35%;
     left: 35%;
-    font-size: 5rem;
+    font-size: 2rem;
     color: maroon;
 }
 
@@ -63,7 +57,7 @@
 
 #work {
     color: black;
-    font-size: 4rem;
+    font-size: 1rem;
 }
 
 @keyframes slidein{
@@ -81,13 +75,13 @@
 .about {
     position: relative;
     background-color: beige;
-    height: 3500px;
+    height: 1500px;
 }
 
 .contact {
     position: relative;
     background-color: antiquewhite;
-    height: 1000px;
+    height: 500px;
 }
 
 #ABOUT {
@@ -98,9 +92,9 @@
     background-color: beige;
     margin-right: 95%;
     width: 15%;
-    height: 100px;
+    height: 50px;
     color: darkslategray;
-    font-size: 5rem;
+    font-size: 2rem;
     text-align: center;
 }
 
@@ -111,7 +105,7 @@
     margin-left: 5%;
     margin-right: 5%;
     margin-top: 80px;
-    font-size: 4em;
+    font-size: 1.5rem;
     text-align: center;
     border-style: dashed;
     border-color: orange;
@@ -151,9 +145,9 @@
     background-color: antiquewhite;
     margin-right: 95%;
     width: 15%;
-    height: 100px;
+    height: 50px;
     color: darkslategray;
-    font-size: 5rem;
+    font-size: 2rem;
     text-align: center;
 }
 
@@ -162,21 +156,21 @@
     position: absolute;
     width: 1000px;
     top: 50%;
-    left: 50%;
-    margin-left: -380px;
+    left: 60%;
+    margin-left: -400px;
     margin-top: -100px;
 }
 
 .tag > a > img {
-    margin-right: 10%;
+    margin-right: 2%;
     margin-top: 2%;
-    margin-bottom: 5%;
-    width: 150px;
+    margin-bottom: 2%;
+    width: 100px;
     height: auto;
 }
 
 .tag > h1 {
-    font-size: 3rem;
+    font-size: 1rem;
 }
 
 footer {
