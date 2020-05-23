@@ -1,7 +1,8 @@
 /*로그인 페이지*/
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import UseInfo from "../Hooks/UseInfo";
 
 const MainTemplate = styled.div`
   margin-left: 25%;
@@ -53,43 +54,35 @@ const Button = styled.button`
 `;
 
 const Login = () => {
-    const [id, setId] = useState("");
-    const [password, setPassword] = useState("");
+  const [id, onSetId] = UseInfo("");
+  const [password, onSetPassword] = UseInfo("");
 
-    const onsetId = (e) => {
-        setId(e.target.value);
-    };
+  return (
+    <MainTemplate>
+      <LoginTitle>로그인</LoginTitle>
+      <InputDiv>
+        <Input
+          value={id}
+          placeholder="아이디를 입력하세요"
+          onChange={onSetId}
+        />
+      </InputDiv>
+      <InputDiv>
+        <Input
+          type="password"
+          value={password}
+          placeholder="비밀번호를 입력하세요"
+          onChange={onSetPassword}
+        />
+      </InputDiv>
 
-    const onsetPassword = (e) => {
-        setPassword(e.target.value);
-    };
-
-    return (
-        <MainTemplate>
-            <LoginTitle>로그인</LoginTitle>
-            <InputDiv>
-                <Input
-                    value={id}
-                    placeholder="아이디를 입력하세요"
-                    onChange={onsetId}
-                />
-            </InputDiv>
-            <InputDiv>
-                <Input
-                    type="password"
-                    value={password}
-                    placeholder="비밀번호를 입력하세요"
-                    onChange={onsetPassword}
-                />
-            </InputDiv>
-
-            <ButtonDiv>
-                <Link to={`LoginDone/${id}`}>
-                    <Button>확인</Button>
-                </Link>
-            </ButtonDiv>
-        </MainTemplate>
-    );
+      <ButtonDiv>
+        <Link to={`LoginDone/${id}`}>
+          <Button>확인</Button>
+        </Link>
+      </ButtonDiv>
+    </MainTemplate>
+  );
 };
 
 export default Login;

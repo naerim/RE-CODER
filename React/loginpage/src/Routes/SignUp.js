@@ -1,14 +1,15 @@
 /*회원가입 페이지*/
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import UseInfo from "../Hooks/UseInfo";
 
 const MainTemplate = styled.div`
   margin-left: 25%;
   margin-right: 25%;
   margin-top: 6rem;
   border-radius: 4px;
-  height: 350px;
+  height: 400px;
   overflow: hidden;
   background: white;
 `;
@@ -52,56 +53,65 @@ const Button = styled.button`
   }
 `;
 
+const CheckDiv = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  color: red;
+`;
 const SignUp = () => {
-    const [name, setName] = useState("");
-    const [id, setId] = useState("");
-    const [password, setPassword] = useState("");
+  const [name, onSetName] = UseInfo("");
+  const [id, onSetId] = UseInfo("");
+  const [password, onSetPassword] = UseInfo("");
+  const [confirm, onSetConfirm] = UseInfo("");
 
-    const onSetName = (e) => {
-        setName(e.target.value);
-    };
+  const feedbackMessage = () => {
+    if (password !== confirm)
+      return <CheckDiv>비밀번호가 일치하지 않습니다.</CheckDiv>;
+  };
 
-    const onsetId = (e) => {
-        setId(e.target.value);
-    };
-
-    const onsetPassword = (e) => {
-        setPassword(e.target.value);
-    };
-
-    return (
-        <MainTemplate>
-            <SignUpTitle>회원가입</SignUpTitle>
-            <InputDiv>
-                <Input
-                    value={name}
-                    placeholder="이름을 입력하세요"
-                    onChange={onSetName}
-                />
-            </InputDiv>
-            <InputDiv>
-                <Input
-                    value={id}
-                    placeholder="아이디를 입력하세요"
-                    onChange={onsetId}
-                />
-            </InputDiv>
-            <InputDiv>
-                <Input
-                    type="password"
-                    value={password}
-                    placeholder="비밀번호를 입력하세요"
-                    onChange={onsetPassword}
-                />
-            </InputDiv>
-
-            <ButtonDiv>
-                <Link to={`SignUpDone/${name}`}>
-                    <Button>확인</Button>
-                </Link>
-            </ButtonDiv>
-        </MainTemplate>
-    );
+  return (
+    <MainTemplate>
+      <SignUpTitle>회원가입</SignUpTitle>
+      <InputDiv>
+        <Input
+          value={name}
+          placeholder="이름을 입력하세요"
+          onChange={onSetName}
+        />
+      </InputDiv>
+      <InputDiv>
+        <Input
+          value={id}
+          placeholder="아이디를 입력하세요"
+          onChange={onSetId}
+        />
+      </InputDiv>
+      <InputDiv>
+        <Input
+          type="password"
+          value={password}
+          placeholder="비밀번호를 입력하세요"
+          onChange={onSetPassword}
+        />
+      </InputDiv>
+      <InputDiv>
+        <Input
+          type="password"
+          value={confirm}
+          placeholder="비밀번호 확인"
+          onChange={onSetConfirm}
+        />
+      </InputDiv>
+      {feedbackMessage()}
+      <ButtonDiv>
+        <Link to={`SignUpDone/${name}`}>
+          <Button>확인</Button>
+        </Link>
+      </ButtonDiv>
+    </MainTemplate>
+  );
 };
 
 export default SignUp;
