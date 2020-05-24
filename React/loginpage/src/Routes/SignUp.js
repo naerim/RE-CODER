@@ -28,6 +28,7 @@ const SignUpTitle = styled.div`
 const InputDiv = styled.div`
   margin: 3%;
 `;
+
 const Input = styled.input`
   display: block;
   margin: 0 auto;
@@ -51,6 +52,10 @@ const Button = styled.button`
   &:hover {
     background: #4408ba;
   }
+
+  &:disabled {
+    background: gray;
+  }
 `;
 
 const CheckDiv = styled.div`
@@ -60,6 +65,7 @@ const CheckDiv = styled.div`
   font-size: 0.7rem;
   color: red;
 `;
+
 const SignUp = () => {
   const [name, onSetName] = UseInfo("");
   const [id, onSetId] = UseInfo("");
@@ -67,7 +73,7 @@ const SignUp = () => {
   const [confirm, onSetConfirm] = UseInfo("");
 
   const feedbackMessage = () => {
-    if (password !== confirm)
+    if (password !== confirm && confirm)
       return <CheckDiv>비밀번호가 일치하지 않습니다.</CheckDiv>;
   };
 
@@ -107,7 +113,11 @@ const SignUp = () => {
       {feedbackMessage()}
       <ButtonDiv>
         <Link to={`SignUpDone/${name}`}>
-          <Button>확인</Button>
+          <Button
+            disabled={!id || !password || !confirm || password !== confirm}
+          >
+            확인
+          </Button>
         </Link>
       </ButtonDiv>
     </MainTemplate>

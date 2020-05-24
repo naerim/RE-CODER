@@ -14,7 +14,7 @@ const MainTemplate = styled.div`
 `;
 
 const TextDiv = styled.div`
-font-size: 2rem;
+  font-size: 2rem;
   font-weight: bold;
   color: #7408ba;
   display: flex;
@@ -23,6 +23,7 @@ font-size: 2rem;
   margin-top: 20%;
   margin-bottom: 20%;
 `;
+
 const ButtonDiv = styled.div`
   display: flex;
   align-items: center;
@@ -42,6 +43,7 @@ const Button = styled.button`
     background: #4408ba;
   }
 `;
+
 const LoginDone = ({ match }) => {
     return (
         <MainTemplate>

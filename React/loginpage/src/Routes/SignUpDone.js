@@ -23,6 +23,7 @@ font-size: 2rem;
   margin-top: 20%;
   margin-bottom: 20%;
 `;
+
 const ButtonDiv = styled.div`
   display: flex;
   align-items: center;
@@ -42,6 +43,7 @@ const Button = styled.button`
     background: #4408ba;
   }
 `;
+
 const SignUpDone = ({ match }) => {
     return (
         <MainTemplate>

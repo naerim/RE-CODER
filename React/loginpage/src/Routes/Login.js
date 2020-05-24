@@ -51,6 +51,10 @@ const Button = styled.button`
   &:hover {
     background: #4408ba;
   }
+
+  &:disabled {
+    background: gray;
+  }
 `;
 
 const Login = () => {
@@ -75,10 +79,9 @@ const Login = () => {
           onChange={onSetPassword}
         />
       </InputDiv>
-
       <ButtonDiv>
         <Link to={`LoginDone/${id}`}>
-          <Button>확인</Button>
+          <Button disabled={!password}>확인</Button>
         </Link>
       </ButtonDiv>
     </MainTemplate>

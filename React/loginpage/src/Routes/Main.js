@@ -29,8 +29,8 @@ const ButtonDiv = styled.div`
   align-items: center;
   justify-content: center;
   margin: 3%;
-
 `;
+
 const Button = styled.button`
   background: #5408ba;
   color: white;
