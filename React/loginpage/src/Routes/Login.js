@@ -2,6 +2,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { UserConsumer } from "../Contexts/User";
 import UseInfo from "../Hooks/UseInfo";
 
 const MainTemplate = styled.div`
@@ -62,29 +63,47 @@ const Login = () => {
   const [password, onSetPassword] = UseInfo("");
 
   return (
-    <MainTemplate>
-      <LoginTitle>로그인</LoginTitle>
-      <InputDiv>
-        <Input
-          value={id}
-          placeholder="아이디를 입력하세요"
-          onChange={onSetId}
-        />
-      </InputDiv>
-      <InputDiv>
-        <Input
-          type="password"
-          value={password}
-          placeholder="비밀번호를 입력하세요"
-          onChange={onSetPassword}
-        />
-      </InputDiv>
-      <ButtonDiv>
-        <Link to={`LoginDone/${id}`}>
-          <Button disabled={!password}>확인</Button>
-        </Link>
-      </ButtonDiv>
-    </MainTemplate>
+    <UserConsumer>
+      {({ state, action }) => (
+        <MainTemplate>
+          <LoginTitle>로그인</LoginTitle>
+          <InputDiv>
+            <Input
+              value={id}
+              placeholder="아이디를 입력하세요"
+              onChange={onSetId}
+            />
+          </InputDiv>
+          <InputDiv>
+            <Input
+              type="password"
+              value={password}
+              placeholder="비밀번호를 입력하세요"
+              onChange={onSetPassword}
+            />
+          </InputDiv>
+          <ButtonDiv>
+            <Link
+              to={
+                id === state.id &&
+                password === state.password &&
+                `LoginDone/${state.id}`
+              }
+            >
+              <Button
+                disabled={!password}
+                onClick={() =>
+                  (id !== state.id || password !== state.password) &&
+                  alert("아이디/비밀번호가 일치하지 않습니다.")
+                }
+              >
+                확인
+              </Button>
+            </Link>
+          </ButtonDiv>
+        </MainTemplate>
+      )}
+    </UserConsumer>
   );
 };
 

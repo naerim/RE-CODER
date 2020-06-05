@@ -3,6 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import UseInfo from "../Hooks/UseInfo";
+import { UserConsumer } from "../Contexts/User";
 
 const MainTemplate = styled.div`
   margin-left: 25%;
@@ -68,59 +69,56 @@ const CheckDiv = styled.div`
 
 const SignUp = () => {
   const [name, onSetName] = UseInfo("");
-  const [id, onSetId] = UseInfo("");
-  const [password, onSetPassword] = UseInfo("");
   const [confirm, onSetConfirm] = UseInfo("");
 
-  const feedbackMessage = () => {
-    if (password !== confirm && confirm)
-      return <CheckDiv>비밀번호가 일치하지 않습니다.</CheckDiv>;
-  };
-
   return (
-    <MainTemplate>
-      <SignUpTitle>회원가입</SignUpTitle>
-      <InputDiv>
-        <Input
-          value={name}
-          placeholder="이름을 입력하세요"
-          onChange={onSetName}
-        />
-      </InputDiv>
-      <InputDiv>
-        <Input
-          value={id}
-          placeholder="아이디를 입력하세요"
-          onChange={onSetId}
-        />
-      </InputDiv>
-      <InputDiv>
-        <Input
-          type="password"
-          value={password}
-          placeholder="비밀번호를 입력하세요"
-          onChange={onSetPassword}
-        />
-      </InputDiv>
-      <InputDiv>
-        <Input
-          type="password"
-          value={confirm}
-          placeholder="비밀번호 확인"
-          onChange={onSetConfirm}
-        />
-      </InputDiv>
-      {feedbackMessage()}
-      <ButtonDiv>
-        <Link to={`SignUpDone/${name}`}>
-          <Button
-            disabled={!id || !password || !confirm || password !== confirm}
-          >
-            확인
-          </Button>
-        </Link>
-      </ButtonDiv>
-    </MainTemplate>
+    <UserConsumer>
+      {({ state, action }) => (
+        <MainTemplate>
+          <SignUpTitle>회원가입</SignUpTitle>
+          <InputDiv>
+            <Input
+              value={name}
+              placeholder="이름을 입력하세요"
+              onChange={onSetName}
+            />
+          </InputDiv>
+          <InputDiv>
+            <Input
+              value={state.id}
+              placeholder="아이디를 입력하세요"
+              onChange={action.onSetId}
+            />
+          </InputDiv>
+          <InputDiv>
+            <Input
+              type="password"
+              value={state.password}
+              placeholder="비밀번호를 입력하세요"
+              onChange={action.onSetPassword}
+            />
+          </InputDiv>
+          <InputDiv>
+            <Input
+              type="password"
+              value={confirm}
+              placeholder="비밀번호 확인"
+              onChange={onSetConfirm}
+            />
+          </InputDiv>
+          {state.password !== confirm && confirm && <CheckDiv>비밀번호가 일치하지 않습니다.</CheckDiv>}
+          <ButtonDiv>
+            <Link to={`SignUpDone/${name}`}>
+              <Button
+                disabled={!name || !state.id || !state.password || !confirm || state.password !== confirm}
+              >
+                확인
+              </Button>
+            </Link>
+          </ButtonDiv>
+        </MainTemplate>
+      )}
+    </UserConsumer>
   );
 };
 
