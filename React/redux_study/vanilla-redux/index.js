@@ -1,3 +1,5 @@
+import { createStore } from "redux";
+
 const divToggle = document.querySelector(".toggle");
 const counter = document.querySelector("h1");
 const btnIncrease = document.querySelector("#increase");
@@ -43,3 +45,25 @@ function reducer(state = initialState, action) {
       return state;
   }
 }
+
+// 스토어
+const store = createStore(reducer);
+
+const render = () => {
+  const state = store.getState(); // 현재 상태를 불러온다.
+  // 토글 처리
+  if (state.toggle) {
+    divToggle.classList.add("active");
+  } else {
+    divToggle.classList.remove("active");
+  }
+  // 카운터 처리
+  counter.innerText = state.counter;
+};
+
+// 스토어의 내장 함수 subscribe
+const listener = () => {
+  console.log("상태가 업그레이드됨");
+};
+const unsubscribe = store.subscribe(listener);
+unsubscribe(); // 추후 구독을 비활성화할 때 함수를 호출
